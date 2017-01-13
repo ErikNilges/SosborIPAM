@@ -12,7 +12,7 @@ include 'header.php';
               <div class="panel-heading">
                 <h3>Login</h3>
               </div>
-              <form class="form-horizontal" action="login_cmd.php" method="post">
+              <form class="form-horizontal" action="include/login.inc.php" method="post">
                 <div class="panel-body">
                   <div class="col-md-3">
                   </div>

@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'db.inc.php';
 
 $sql = "SELECT COUNT(*) FROM user";
 $result = mysqli_query($db, $sql);
@@ -10,7 +10,7 @@ for ($i = 0; $i < $row[0]; $i++){
   echo "
   <div class='panel panel-default'>
     <div class='panel-heading'>
-      <form action='del_user.inc.php' method='post'>
+      <form action='include/del_user.inc.php' method='post'>
         <button type='submit' class='btn btn-danger' role='button' name='delete' value='{$userdata['username']}'>Delete</button>
       </form>
     </div>
@@ -31,11 +31,8 @@ for ($i = 0; $i < $row[0]; $i++){
   ";
 };
 
-function blablub(){
-  return "hallo";
-};
 function getUserdata($nummer){
-  include 'db.php';
+  include 'db.inc.php';
   $sql = "SELECT * FROM user LIMIT 1 OFFSET $nummer";
   $result = mysqli_query($db, $sql);
   $row = mysqli_fetch_assoc($result);
@@ -43,7 +40,7 @@ function getUserdata($nummer){
 };
 
 function delUser($nummer){
-  include 'db.php';
+  include 'db.inc.php';
   $sql = "SELECT * FROM user LIMIT 1 OFFSET $nummer";
   $result = mysqli_query($db, $sql);
   $row = mysqli_fetch_assoc($result);

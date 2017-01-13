@@ -8,7 +8,7 @@ include 'header.php';
           <div class="col-lg-12">
 
             <!-- Neuer Benutzer Start -->
-            <form action="new_user_cmd.php" method="post">
+            <form action="include/new_user.inc.php" method="post">
               <div class="panel panel-default" style="margin-right:15px">
                 <div class="panel-heading">
                   <h3>Neuer Benutzer</h3>

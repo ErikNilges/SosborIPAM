@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'db.php';
+include 'db.inc.php';
 
 
 $sql = "SELECT * FROM user WHERE username='{$_POST['username']}'";
@@ -13,8 +13,8 @@ if (password_verify($_POST['password'], $row['password'])){
   $_SESSION['username'] = $row['username'];
   $_SESSION['vorname'] = $row['vorname'];
   $_SESSION['nachname'] = $row['nachname'];
-  header("Location: index.php");
+  header("Location: ../index.php");
 } else {
-  header("Location: login.php");
+  header("Location: ../login.php");
 }
  ?>

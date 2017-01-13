@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'db.php';
+include 'db.inc.php';
 
 $vorname = $_POST['vorname'];
 $nachname = $_POST['nachname'];
@@ -14,5 +14,5 @@ $sql = "INSERT INTO user (vorname, nachname, username, password) VALUES ('$vorna
 
 $result = mysqli_query($db, $sql);
 
-header("Location: new_user.php");
+header("Location: ../new_user.php");
  ?>
