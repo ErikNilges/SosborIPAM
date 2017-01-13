@@ -26,6 +26,9 @@ session_start();
           <li>
             <a href="anlegen.php"><span>Netzwerk anlegen</span></a>
           </li>
+          <li>
+            <a href="users.php"><span>Users</span></a>
+          </li>
           <hr>
           <?php
           if (isset($_SESSION['username'])){
