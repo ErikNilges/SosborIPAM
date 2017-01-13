@@ -1,4 +1,5 @@
 <?php
+// Header und Sidebar einbinden
 include 'header.php';
  ?>
     <!-- Content Start -->
@@ -36,14 +37,6 @@ include 'header.php';
                   <button type="submit" class="btn btn-success" style="width: 120px">Login</button>
                 </div>
               </form>
-
-              <?php
-              if (isset($_SESSION['username'])){
-                echo "Eingeloggt als {$_SESSION['vorname']} {$_SESSION['nachname']}";
-              }
-              ?>
-
-
             </div>
             <!-- Login Ende-->
 

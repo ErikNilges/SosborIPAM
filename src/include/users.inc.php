@@ -1,10 +1,15 @@
 <?php
+// Datenbankverbindung
 include 'db.inc.php';
 
-$sql = "SELECT COUNT(*) FROM user";
-$result = mysqli_query($db, $sql);
+// SQL-Abfrage der Anzahl der eingetragenen User
+$result = mysqli_query($db, "SELECT COUNT(*) FROM user");
+
+// SQL-Abfrage als Array speichern
 $row = mysqli_fetch_row($result);
 
+// Für jeden User einen Eintrag generieren
+// "Delete"-Button, Vorname, Nachname, Username
 for ($i = 0; $i < $row[0]; $i++){
   $userdata = getUserdata($i);
   echo "
@@ -27,22 +32,14 @@ for ($i = 0; $i < $row[0]; $i++){
         </div>
       </div>
     </div>
-  </div>
-  ";
+  </div>";
 };
 
+// Funktion, welche als Parameter die Eintragsnummer des Users benötigt und für diesen
+// einen Associative Array anlegt, welcher zugleich die Ausgabe der Funktion ist
 function getUserdata($nummer){
   include 'db.inc.php';
-  $sql = "SELECT * FROM user LIMIT 1 OFFSET $nummer";
-  $result = mysqli_query($db, $sql);
-  $row = mysqli_fetch_assoc($result);
-  return $row;
-};
-
-function delUser($nummer){
-  include 'db.inc.php';
-  $sql = "SELECT * FROM user LIMIT 1 OFFSET $nummer";
-  $result = mysqli_query($db, $sql);
+  $result = mysqli_query($db, "SELECT * FROM user LIMIT 1 OFFSET $nummer");
   $row = mysqli_fetch_assoc($result);
   return $row;
 };

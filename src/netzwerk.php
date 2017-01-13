@@ -1,4 +1,5 @@
 <?php
+// Header und Sidebar einbinden
 include 'header.php';
  ?>
     <!-- Content Start -->

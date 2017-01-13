@@ -1,4 +1,5 @@
 <?php
+// Header und Sidebar einbinden
 include 'header.php';
  ?>
     <!-- Content Start -->
@@ -7,27 +8,25 @@ include 'header.php';
         <div class="row">
           <div class="col-lg-12">
 
-            <!-- Netzwerkübersicht Start-->
+            <!-- Userübersicht Start-->
             <div class="panel panel-default" style="margin-right:15px">
               <div class="panel-heading">
                 <h3>Users</h3>
               </div>
               <div class="panel-body">
-
-                <!-- Variante 1 -->
                 <div class="panel-group">
+
                   <?php
                   include 'include/users.inc.php'
                    ?>
+
                 </div>
-
-
               </div>
               <div class="panel-footer">
                 <a href="new_user.php" role="button" class="btn btn-success">Neuer User</a>
               </div>
             </div>
-            <!-- Netzwerkübersicht Ende-->
+            <!-- Userübersicht Ende-->
 
           </div>
         </div>

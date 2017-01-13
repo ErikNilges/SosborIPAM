@@ -1,4 +1,7 @@
+<!-- Diese Datei beinhaltet Header-Informationen, wie Charset, Titel, Stylesheets, sowie Teile des Bodys (Sidebar-Navigation) -->
+<!-- Sie wird in alle Hauptseiten eingebunden und erleichtert so Änderungen -->
 <?php
+// Usersession initialisieren
 session_start();
  ?>
 
@@ -7,7 +10,7 @@ session_start();
   <head>
     <meta charset="utf-8">
     <title>SosborIPAM</title>
-    <!-- Style -->
+    <!-- Stylesheets (Bootstrap-Framework & eigenes) -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/ipam.css" rel="stylesheet">
   </head>
@@ -24,19 +27,24 @@ session_start();
             <a href="index.php"><span>Übersicht</span></a>
           </li>
           <li>
-            <a href="anlegen.php"><span>Netzwerk anlegen</span></a>
+            <a href="new_network.php"><span>Netzwerk anlegen</span></a>
           </li>
           <li>
             <a href="users.php"><span>Users</span></a>
           </li>
           <hr>
+
           <?php
+          // Falls eine Usersession existiert -> Logout-Button
+          // Ansonsten -> Login-Button
           if (isset($_SESSION['username'])){
-            echo "<li>
-              <a href='logout.php'><span>Logout</span></a>
+            echo "
+            <li>
+              <a href='/include/logout.inc.php'><span>Logout</span></a>
             </li>";
           } else {
-            echo "<li>
+            echo "
+            <li>
               <a href='login.php'><span>Login</span></a>
             </li>";
           }

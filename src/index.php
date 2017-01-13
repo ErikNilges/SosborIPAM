@@ -1,4 +1,5 @@
 <?php
+// Header und Sidebar einbinden
 include 'header.php';
  ?>
     <!-- Content Start -->
@@ -18,7 +19,7 @@ include 'header.php';
                 <div class="panel-group">
                   <div class="panel panel-default">
                     <div class="panel-heading">
-                      <a href="netzwerk.html" class="btn btn-primary" role="button">Netzwerk A</a>
+                      <a href="new_network.php" class="btn btn-primary" role="button">Netzwerk A</a>
                     </div>
                     <div class="panel-body">
                       <div class="row">
@@ -126,105 +127,6 @@ include 'header.php';
                   </div>
                 </div>
 
-                <!-- <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th class="table-checkbox">
-                        <input type="checkbox" value="">
-                      </th>
-                      <th>
-                        Netzwerk
-                      </th>
-                      <th>
-                        IP-Range
-                      </th>
-                      <th>
-                        Kommentar
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="table-checkbox">
-                        <input type="checkbox" value="">
-                      </td>
-                      <td>
-                        Beispiel
-                      </td>
-                      <td>
-                        192.168.2.0 - 192.168.2.255
-                      </td>
-                      <td>
-                        Kein Kommentar!
-                      </td>
-                    </tr><tr>
-                      <td class="table-checkbox">
-                        <input type="checkbox" value="">
-                      </td>
-                      <td>
-                        Beispiel
-                      </td>
-                      <td>
-                        192.168.2.0 - 192.168.2.255
-                      </td>
-                      <td>
-                        Kein Kommentar!
-                      </td>
-                    </tr><tr>
-                      <td class="table-checkbox">
-                        <input type="checkbox" value="">
-                      </td>
-                      <td>
-                        Beispiel
-                      </td>
-                      <td>
-                        192.168.2.0 - 192.168.2.255
-                      </td>
-                      <td>
-                        Kein Kommentar!
-                      </td>
-                    </tr><tr>
-                      <td class="table-checkbox">
-                        <input type="checkbox" value="">
-                      </td>
-                      <td>
-                        Beispiel
-                      </td>
-                      <td>
-                        192.168.2.0 - 192.168.2.255
-                      </td>
-                      <td>
-                        Kein Kommentar!
-                      </td>
-                    </tr><tr>
-                      <td class="table-checkbox">
-                        <input type="checkbox" value="">
-                      </td>
-                      <td>
-                        Beispiel
-                      </td>
-                      <td>
-                        192.168.2.0 - 192.168.2.255
-                      </td>
-                      <td>
-                        Kein Kommentar!
-                      </td>
-                    </tr><tr>
-                      <td class="table-checkbox">
-                        <input type="checkbox" value="">
-                      </td>
-                      <td>
-                        Beispiel
-                      </td>
-                      <td>
-                        192.168.2.0 - 192.168.2.255
-                      </td>
-                      <td>
-                        Kein Kommentar!
-                      </td>
-                    </tr>
-                  </tbody>
-                </table> -->
               </div>
               <div class="panel-footer">
                 <button type="button" class="btn btn-danger">Delete</button>
