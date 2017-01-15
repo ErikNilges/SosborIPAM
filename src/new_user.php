@@ -36,6 +36,17 @@ include 'header.php';
                         <span class="glyphicon glyphicon glyphicon-remove-circle form-control-feedback"></span>
                       </div>
                     </div>
+                    <?php
+                     if ($_SESSION['falscheeingabe'] == 1){
+                       echo "
+                       <div class='alert alert-danger'>Bitte überprüfen Sie Ihre Eingabe!</div>";
+                       unset($_SESSION['falscheeingabe']);
+                     } elseif ($_SESSION['falscheeingabe'] == 2) {
+                       echo "
+                       <div class='alert alert-danger'>Dieser Username ist bereits vergeben!</div>";
+                       unset($_SESSION['falscheeingabe']);
+                     }
+                     ?>
                   </div>
                   <div class="col-md-3">
                   </div>
