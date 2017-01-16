@@ -20,12 +20,12 @@ include 'header.php';
                   <div class="col-md-6">
                     <div class="well well-sm" style="max-width: 600px">
                         <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
                           <input type="text" class="form-control" name="username" placeholder="Username">
                         </div>
                         <br>
                         <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                           <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
                     </div>

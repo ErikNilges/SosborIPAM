@@ -21,19 +21,19 @@ include 'header.php';
                     <div class="well well-sm" style="max-width: 600px">
                       <div class="form-group has-feedback">
                         <input type="text" class="form-control" name="vorname" placeholder="Vorname">
-                        <span class="glyphicon glyphicon glyphicon-remove-circle form-control-feedback"></span>
+                        <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
                       <div class="form-group has-feedback">
                         <input type="text" class="form-control" name="nachname" placeholder="Nachname">
-                        <span class="glyphicon glyphicon glyphicon-remove-circle form-control-feedback"></span>
+                        <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
                       <div class="form-group has-feedback">
                         <input type="text" class="form-control" name="username" placeholder="Username">
-                        <span class="glyphicon glyphicon glyphicon-remove-circle form-control-feedback"></span>
+                        <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
                       <div class="form-group has-feedback">
                         <input type="password" class="form-control" name="password" placeholder="Password">
-                        <span class="glyphicon glyphicon glyphicon-remove-circle form-control-feedback"></span>
+                        <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
                     </div>
                     <?php

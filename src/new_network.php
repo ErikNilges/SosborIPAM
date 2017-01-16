@@ -21,15 +21,15 @@ include 'header.php';
                   <div class="well well-sm" style="max-width: 600px">
                       <div class="form-group has-feedback">
                         <input id="name" type="text" class="form-control" name="name" placeholder="Name des Netzwerks">
-                          <span class="glyphicon glyphicon glyphicon-remove-circle form-control-feedback"></span>
+                          <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
                       <div class="form-group has-feedback">
                         <input id="name" type="text" class="form-control" name="name" placeholder="IP-Adresse">
-                          <span class="glyphicon glyphicon glyphicon-remove-circle form-control-feedback"></span>
+                          <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
                       <div class="form-group has-feedback">
                         <input id="name" type="text" class="form-control" name="name" placeholder="Netzwerkmaske">
-                          <span class="glyphicon glyphicon glyphicon-remove-circle form-control-feedback"></span>
+                          <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
                       <input id="name" type="text" class="form-control" name="name" placeholder="Kommentar">
                   </div>

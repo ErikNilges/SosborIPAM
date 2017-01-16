@@ -12,6 +12,7 @@ session_start();
     <title>SosborIPAM</title>
     <!-- Stylesheets (Bootstrap-Framework & eigenes) -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/ipam.css" rel="stylesheet">
   </head>
   <body>
@@ -24,28 +25,27 @@ session_start();
             <a href="index.php"><span>SosborIPAM</span></a>
           </li>
           <li>
-            <a href="index.php"><span class="glyphicon glyphicon-list"></span> Übersicht</a>
+            <a href="index.php"><span class="fa fa-list"></span> Übersicht</a>
           </li>
           <li>
-            <a href="new_network.php"><span class="glyphicon glyphicon-plus-sign"></span> Netzwerk anlegen</a>
+            <a href="new_network.php"><span class="fa fa-plus-circle"></span> Netzwerk anlegen</a>
           </li>
           <li>
-            <a href="users.php"><span class="glyphicon glyphicon-user"></span> Users</a>
+            <a href="users.php"><span class="fa fa-users"></span> Users</a>
           </li>
-          <hr>
 
           <?php
           // Falls eine Usersession existiert -> Logout-Button
           // Ansonsten -> Login-Button
           if (isset($_SESSION['username'])){
             echo "
-            <li>
-              <a href='/include/logout.inc.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a>
+            <li class='login'>
+              <a href='/include/logout.inc.php'><span class='fa fa-sign-out'></span> Logout</a>
             </li>";
           } else {
             echo "
-            <li>
-              <a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a>
+            <li class='login'>
+              <a href='login.php'><span class='fa fa-sign-in'></span> Login</a>
             </li>";
           }
            ?>
