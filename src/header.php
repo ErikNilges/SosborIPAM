@@ -24,13 +24,13 @@ session_start();
             <a href="index.php"><span>SosborIPAM</span></a>
           </li>
           <li>
-            <a href="index.php"><span>Übersicht</span></a>
+            <a href="index.php"><span class="glyphicon glyphicon-list"></span> Übersicht</a>
           </li>
           <li>
-            <a href="new_network.php"><span>Netzwerk anlegen</span></a>
+            <a href="new_network.php"><span class="glyphicon glyphicon-plus-sign"></span> Netzwerk anlegen</a>
           </li>
           <li>
-            <a href="users.php"><span>Users</span></a>
+            <a href="users.php"><span class="glyphicon glyphicon-user"></span> Users</a>
           </li>
           <hr>
 
@@ -40,12 +40,12 @@ session_start();
           if (isset($_SESSION['username'])){
             echo "
             <li>
-              <a href='/include/logout.inc.php'><span>Logout</span></a>
+              <a href='/include/logout.inc.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a>
             </li>";
           } else {
             echo "
             <li>
-              <a href='login.php'><span>Login</span></a>
+              <a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a>
             </li>";
           }
            ?>
