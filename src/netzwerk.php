@@ -1,11 +1,16 @@
 <?php
 // Header und Sidebar einbinden
 include 'header.php';
+
+// Falls User nicht eingeloggt ist -> Weiterleitung zum Login
+if (!isset($_SESSION['username'])){
+  header("Location: login.php");
+};
  ?>
     <!-- Content Start -->
     <div id="page-content-wrapper">
-      <div class="container">
-        <div class="row">
+      <div class="container-fluid">
+        <div class="row-fluid">
           <div class="col-lg-12">
 
             <!-- Netzwerkübersicht Start-->

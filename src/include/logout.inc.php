@@ -1,6 +1,7 @@
 <?php
 // Usersession initialisieren
 session_start();
+
 // Usersession beenden
 session_destroy();
 

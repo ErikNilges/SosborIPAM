@@ -1,11 +1,16 @@
 <?php
 // Header und Sidebar einbinden
 include 'header.php';
+
+// Falls User nicht eingeloggt ist -> Weiterleitung zum Login
+if (!isset($_SESSION['username'])){
+  header("Location: login.php");
+};
  ?>
     <!-- Content Start -->
     <div id="page-content-wrapper">
-      <div class="container">
-        <div class="row">
+      <div class="container-fluid">
+        <div class="row-fluid">
           <div class="col-lg-12">
 
             <!-- Neues Netzwerk Start -->
@@ -15,9 +20,7 @@ include 'header.php';
               </div>
 
               <div class="panel-body">
-                <div class="col-md-3">
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                   <div class="well well-sm" style="max-width: 600px">
                       <div class="form-group has-feedback">
                         <input id="name" type="text" class="form-control" name="name" placeholder="Name des Netzwerks">
@@ -33,8 +36,6 @@ include 'header.php';
                       </div>
                       <input id="name" type="text" class="form-control" name="name" placeholder="Kommentar">
                   </div>
-                </div>
-                <div class="col-md-3">
                 </div>
               </div>
 

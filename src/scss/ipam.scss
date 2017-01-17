@@ -50,19 +50,37 @@ $page-content-top: 5vh;
   height: 65px;
   line-height: 60px;
   font-size: 26px;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 .table-checkbox {
   width: 10px;
 }
 
-.login {
+.navLogin {
 position: fixed !important;
 width: 180px;
 bottom: 0px !important;
+background-color: $sidebar-color;
 }
 
+.width100 {
+  min-width: 100px;
 }
 
+.delete {
+  color: #d9534f;
+}
+
+.navUser {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.alignMiddle {
+   margin-top: 7px;
+}
+
+.bottom15 {
+  margin-bottom: 15px;
 }
