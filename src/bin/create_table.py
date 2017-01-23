@@ -81,7 +81,7 @@ config.read('./server.ini')
 # Apply the varibales read from the configuration
 
 
-
+# Defining a new connection with the variables from the server.ini
 connection = mysqldb.connect( 
     host = config['Default']['DatabaseHost'],
     user = config['Default']['DatabaseUser'],
@@ -90,64 +90,51 @@ connection = mysqldb.connect(
     charset = 'utf8mb4',    
     cursorclass = mysqldb.cursors.DictCursor
     )
+try:
+# Add a new network entry in the network meta table    
+    with connection.cursor() as cursor:
+        sql = "INSERT INTO `networks` (`nwname`, `nwaddress`, `nwsm`, `nwcomment`) VALUES (%s, %s, %s, %s)"
+        cursor.execute(sql, ('Template', tuple_all, options.netbits, 'Template'))
+        connection.commit()
+# Get the newly assigned network ID
+    with connection.cursor() as cursor:
+        sql = "SELECT `nwid` FROM networks ORDER BY nwid DESC LIMIT 1"
+        cursor.execute(sql)
+        nwid = cursor.fetchone()
+        nwid2 = nwid.get('nwid')
+        adrspace = "adrspace_" + str(nwid.get('nwid'))
+# Create a new table to hold the address space information
+    with connection.cursor() as cursor:
+        sql = "CREATE TABLE `"+adrspace+"` (address VARCHAR(32), typ VARCHAR(16), host VARCHAR(48) DEFAULT ' ', comment VARCHAR(64) DEFAULT ' ', nwid INT, PRIMARY KEY (address))"
+        cursor.execute(sql)
 
-with connection.cursor() as cursor:
-    sql = "INSERT INTO `networks` (`nwname`, `nwaddress`, `nwsm`, `nwcomment`) VALUES (%s, %s, %s, %s)"
-    cursor.execute(sql, ('Template', tuple_all, options.netbits, 'Template'))
-connection.commit()
-
-with connection.cursor() as cursor:
-    sql = "SELECT `nwid` FROM networks ORDER BY nwid DESC LIMIT 1"
-    cursor.execute(sql)
-    nwid = cursor.fetchone()
-    nwid2 = nwid.get('nwid')
-    adrspace = "adrspace_" + str(nwid.get('nwid'))
-with connection.cursor() as cursor:
-    sql = "CREATE TABLE `"+adrspace+"` (address VARCHAR(32), typ VARCHAR(16), host VARCHAR(48) DEFAULT ' ', comment VARCHAR(64) DEFAULT ' ', nwid INT, PRIMARY KEY (address))"
-    cursor.execute(sql)
-
-connection.close()
 # As long as the current address isn't equivalent to the last address do:
 # - Transform the address into string binary representation "bin()" and cut of "0b"
 #   which normally indicates the base
 # - Split the string into 4 parts of 8 characters and convert the result to int then
 #   reconvert to string
 # - Concatenate the address tuple strings to one address
-# - Add a new row withe determined results
-connection = mysqldb.connect( 
-    host = config['Default']['DatabaseHost'],
-    user = config['Default']['DatabaseUser'],
-    password = config['Default']['DatabasePassword'],
-    db = config['Default']['Database'],
-    charset = 'utf8mb4',    
-    cursorclass = mysqldb.cursors.DictCursor
-    )
-while address != last+1:         
-    binad = bin(address).split(sep="b")[1]
-    templen =  len(binad)
-    templen = 32 - templen
+# - Add a new row with the determined results
+    while address != last+1:         
+        binad = bin(address).split(sep="b")[1]
+        templen =  len(binad)
+        templen = 32 - templen
 
-    while templen > 0:
-        binad = '0' + binad
-        templen -= 1
+        while templen > 0:
+            binad = '0' + binad
+            templen -= 1
     
-    bin0 = str(int(textwrap.wrap(binad, 8)[0], 2))
-    bin1 = str(int(textwrap.wrap(binad, 8)[1], 2))
-    bin2 = str(int(textwrap.wrap(binad, 8)[2], 2))
-    bin3 = str(int(textwrap.wrap(binad, 8)[3], 2))
-    binadp = bin0 + '.' + bin1 + '.' + bin2 + '.' + bin3
-#    print(binadp)
+        bin0 = str(int(textwrap.wrap(binad, 8)[0], 2))
+        bin1 = str(int(textwrap.wrap(binad, 8)[1], 2))
+        bin2 = str(int(textwrap.wrap(binad, 8)[2], 2))
+        bin3 = str(int(textwrap.wrap(binad, 8)[3], 2))
+        binadp = bin0 + '.' + bin1 + '.' + bin2 + '.' + bin3
     
-    with connection.cursor() as cursor:
-        sql = "INSERT INTO `"+adrspace+"` (`address`, `typ`, `nwid`) VALUES (%s, %s, %s)"
-        cursor.execute(sql, (binadp, 'IPv4', nwid2))
+        with connection.cursor() as cursor:
+            sql = "INSERT INTO `"+adrspace+"` (`address`, `typ`, `nwid`) VALUES (%s, %s, %s)"
+            cursor.execute(sql, (binadp, 'IPv4', nwid2))
+        connection.commit()
+        address += 1
 
-    address += 1
-
-connection.close()
-# ========================== DEBUG =====================================================#
-#print("Netbits: ", netbits, "Netzmaske: ", netlen, "Adresse :", address)
-#print("Host :", host, "User :", user, "Password :", password, "Database: ", database)
-# ======================================================================================#
-# Actual output
-print("Success!")
+finally: connection.close()
+#print("Success!")
