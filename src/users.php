@@ -10,30 +10,26 @@ if (!isset($_SESSION['username'])){
     <!-- Content Start -->
     <div id="page-content-wrapper">
       <div class="container-fluid">
-        <div class="row-fluid">
-          <div class="col-lg-12">
+        <div class="col-xs-12">
 
-            <!-- Userübersicht Start-->
-            <div class="panel panel-default" style="margin-right:15px">
-              <div class="panel-heading">
-                <h3>Users</h3>
-              </div>
-              <div class="panel-body">
-                <div class="panel-group">
-
-                  <?php
-                  include 'include/users.inc.php'
-                   ?>
-
-                </div>
-              </div>
-              <div class="panel-footer">
-                <a href="new_user.php" role="button" class="btn btn-success width100">Neuer User</a>
+          <!-- Userübersicht Start-->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3>Users</h3>
+            </div>
+            <div class="panel-body">
+              <div class="panel-group">
+                <?php
+                include 'include/users.inc.php'
+                 ?>
               </div>
             </div>
-            <!-- Userübersicht Ende-->
-
+            <div class="panel-footer">
+              <a href="new_user.php" role="button" class="btn btn-success width100">Neuer User</a>
+            </div>
           </div>
+          <!-- Userübersicht Ende-->
+
         </div>
       </div>
     </div>

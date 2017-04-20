@@ -10,42 +10,37 @@ if (!isset($_SESSION['username'])){
     <!-- Content Start -->
     <div id="page-content-wrapper">
       <div class="container-fluid">
-        <div class="row-fluid">
-          <div class="col-lg-12">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 
-            <!-- Neues Netzwerk Start -->
-            <div class="panel panel-default" style="margin-right:15px">
-              <div class="panel-heading">
-                <h3>Neues Netzwerk anlegen</h3>
-              </div>
-
-              <div class="panel-body">
-                <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-                  <div class="well well-sm" style="max-width: 600px">
-                      <div class="form-group has-feedback">
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Name des Netzwerks">
-                          <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
-                      </div>
-                      <div class="form-group has-feedback">
-                        <input id="name" type="text" class="form-control" name="name" placeholder="IP-Adresse">
-                          <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
-                      </div>
-                      <div class="form-group has-feedback">
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Netzwerkmaske">
-                          <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
-                      </div>
-                      <input id="name" type="text" class="form-control" name="name" placeholder="Kommentar">
+          <!-- Neues Netzwerk Start -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3>Neues Netzwerk anlegen</h3>
+            </div>
+            <div class="panel-body">
+              <div class="well well-sm col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                  <div class="form-group has-feedback">
+                    <input name="name" type="text" class="form-control" placeholder="Name des Netzwerks">
+                      <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                   </div>
-                </div>
-              </div>
-
-              <div class="panel-footer">
-                <button type="button" class="btn btn-primary" style="width: 120px">Speichern</button>
+                  <div class="form-group has-feedback">
+                    <input name="address" type="text" class="form-control" placeholder="IP-Adresse">
+                      <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input name="nwmask" type="text" class="form-control" placeholder="Netzwerkmaske">
+                      <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
+                  </div>
+                  <input name="comment" type="text" class="form-control" placeholder="Kommentar">
               </div>
             </div>
-            <!-- Neues Netzwerk Ende-->
 
+            <div class="panel-footer">
+              <button type="button" class="btn btn-primary width100">Speichern</button>
+            </div>
           </div>
+          <!-- Neues Netzwerk Ende-->
+
         </div>
       </div>
     </div>

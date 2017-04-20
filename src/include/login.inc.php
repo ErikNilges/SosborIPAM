@@ -6,6 +6,7 @@ session_start();
 include 'db.inc.php';
 
 // SQL-Abfrage des Users
+// $result = mysqli_query($db, "SELECT * FROM user INNER JOIN role ON user.role_id = role.id WHERE username='{$_POST['username']}'");
 $result = mysqli_query($db, "SELECT * FROM user WHERE username='{$_POST['username']}'");
 
 // SQL-Abfrage als Associative Array speichern
@@ -18,6 +19,7 @@ if (password_verify($_POST['password'], $row['password'])){
   $_SESSION['username'] = $row['username'];
   $_SESSION['vorname'] = $row['vorname'];
   $_SESSION['nachname'] = $row['nachname'];
+  $_SESSION['role'] = $row['name'];
   header("Location: ../index.php");
 } else {
   header("Location: ../login.php");

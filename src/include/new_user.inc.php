@@ -30,6 +30,7 @@ if ($vorname == NULL OR $nachname == NULL OR $username == NULL OR $password == N
     $pwdhash = password_hash($password, PASSWORD_BCRYPT);
 
     // User in der Datenbank mit dem gehashten Passwort anlegen
+    // $sql = "INSERT INTO user (vorname, nachname, username, password, role_id) VALUES ('$vorname', '$nachname', '$username', '$pwdhash', {$_POST['role']})";
     $sql = "INSERT INTO user (vorname, nachname, username, password) VALUES ('$vorname', '$nachname', '$username', '$pwdhash')";
     mysqli_query($db, $sql);
 

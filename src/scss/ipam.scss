@@ -1,8 +1,12 @@
 // Farben
 $sidebar-color: #1B1C1D;
 
-$sidebar-width: 180px;
+$sidebar-width: 200px;
 $page-content-top: 5vh;
+
+* {
+  font-family: lato, arial, sans-serif;
+}
 
 #wrapper {
   padding-left: $sidebar-width;
@@ -17,6 +21,7 @@ $page-content-top: 5vh;
   height: 100%;
   overflow-y: auto;
   z-index: 1000;
+  overflow-y: auto;;
 }
 
 #page-content-wrapper {
@@ -59,7 +64,7 @@ $page-content-top: 5vh;
 
 .navLogin {
 position: fixed !important;
-width: 180px;
+width: $sidebar-width;
 bottom: 0px !important;
 background-color: $sidebar-color;
 }
@@ -68,13 +73,21 @@ background-color: $sidebar-color;
   min-width: 100px;
 }
 
+.width70 {
+  min-width: 70px;
+}
+
+.width60 {
+  min-width: 60px;
+}
+
 .delete {
   color: #d9534f;
 }
 
 .navUser {
   margin-top: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 120px;
 }
 
 .alignMiddle {
@@ -83,4 +96,43 @@ background-color: $sidebar-color;
 
 .bottom15 {
   margin-bottom: 15px;
+}
+
+.navImpressum {
+  position: fixed !important;
+  width: $sidebar-width;
+  bottom: 60px !important;
+  background-color: $sidebar-color;
+}
+
+.inline-headers h3, .inline-headers img {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.logo {
+  width: 85px;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.users-inc1 {
+  margin: 9px 9px 0 9px;
+}
+
+.users-inc2 {
+  margin: 9px;
+}
+
+.users-inc3 {
+  padding: inherit;
+}
+
+.users-inc4 {
+  padding-right: 0px;
+}
+
+.users-inc5 {
+  padding-right: 0px;
+  padding-left: 0px;
 }
