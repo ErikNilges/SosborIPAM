@@ -43,10 +43,6 @@ if not options.network_address:
 if not options.netbits:
 	shell_parser.error("please specify the length of the netmask")
 
-# Save parsed network name and comment in a temporary variable
-nname = options.network_name
-comment = options.comment
-
 # Split the address into 4 tuples, then asign the given values to local variables
 tuple_all = options.network_address
 tuple0 = int(tuple_all.split(sep=".")[0])
@@ -108,7 +104,7 @@ try:
 # Add a new network entry in the network meta table    
     with connection.cursor() as cursor:
         sql = "INSERT INTO `networks` (`nwname`, `nwaddress`, `nwsm`, `nwcomment`) VALUES (%s, %s, %s, %s)"
-        cursor.execute(sql, (nname, tuple_all, options.netbits, comment))
+        cursor.execute(sql, (options.network_name, tuple_all, options.netbits, options.comment))
         connection.commit()
 # Get the newly assigned network ID
     with connection.cursor() as cursor:
