@@ -22,26 +22,28 @@ if (!isset($_SESSION['username'])){
               <div class="panel-body">
                 <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                   <div class="well well-sm" style="max-width: 600px">
-                      <div class="form-group has-feedback">
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Name des Netzwerks">
+		      <div class="form-group has-feedback">
+			<form action="./bin/create_table.php" method="POST">
+                        <input id="name" type="text" class="form-control" name="nname" placeholder="Name des Netzwerks">
                           <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
                       <div class="form-group has-feedback">
-                        <input id="name" type="text" class="form-control" name="name" placeholder="IP-Adresse">
+                        <input id="name" type="text" class="form-control" name="naddress" placeholder="IP-Adresse">
                           <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
                       <div class="form-group has-feedback">
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Netzwerkmaske">
+                        <input id="name" type="int" class="form-control" name="nmask" placeholder="Netzwerkmaske">
                           <span class="form-control-feedback"><span class="fa fa-times-circle"></span></span>
                       </div>
-                      <input id="name" type="text" class="form-control" name="name" placeholder="Kommentar">
+                      <input id="name" type="text" class="form-control" name="comment" placeholder="Kommentar">
                   </div>
                 </div>
               </div>
 
               <div class="panel-footer">
-                <button type="button" class="btn btn-primary" style="width: 120px">Speichern</button>
-              </div>
+                <input type="submit" class="btn btn-primary" style="width: 120px">Speichern</button>
+	      </form>
+		</div>
             </div>
             <!-- Neues Netzwerk Ende-->
 

@@ -16,6 +16,16 @@ mysqldb.install_as_MySQLdb()
 # Initializing the command line Parser to recieve arguments from the shell, configure
 # an option for the network address and the netmask length
 shell_parser = OptionParser()
+shell_parser.add_option("-N", "--network-name",
+			dest="network_name",
+			type="string",
+			help="specify the name of the network",
+                        default=" ")
+shell_parser.add_option("-c", "--comment",
+			dest="comment",
+			type="string",
+			help="specify a comment",
+                        default=" ")
 shell_parser.add_option("-a", "--network-address",
 			dest="network_address",
 			type="string",
@@ -32,6 +42,10 @@ if not options.network_address:
 	shell_parser.error("please specify the first network address tuple")
 if not options.netbits:
 	shell_parser.error("please specify the length of the netmask")
+
+# Save parsed network name and comment in a temporary variable
+nname = options.network_name
+comment = options.comment
 
 # Split the address into 4 tuples, then asign the given values to local variables
 tuple_all = options.network_address
@@ -94,7 +108,7 @@ try:
 # Add a new network entry in the network meta table    
     with connection.cursor() as cursor:
         sql = "INSERT INTO `networks` (`nwname`, `nwaddress`, `nwsm`, `nwcomment`) VALUES (%s, %s, %s, %s)"
-        cursor.execute(sql, ('Template', tuple_all, options.netbits, 'Template'))
+        cursor.execute(sql, (nname, tuple_all, options.netbits, comment))
         connection.commit()
 # Get the newly assigned network ID
     with connection.cursor() as cursor:
