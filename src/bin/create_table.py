@@ -115,8 +115,11 @@ try:
         adrspace = "adrspace_" + str(nwid.get('nwid'))
 # Create a new table to hold the address space information
     with connection.cursor() as cursor:
-        sql = "CREATE TABLE `"+adrspace+"` (address VARCHAR(32), typ VARCHAR(16), host VARCHAR(48) DEFAULT ' ', comment VARCHAR(64) DEFAULT ' ', nwid INT, PRIMARY KEY (address))"
+        sql = "CREATE TABLE `"+adrspace+"` (adid INT, address VARCHAR(32), typ VARCHAR(16), host VARCHAR(48) DEFAULT ' ', comment VARCHAR(64) DEFAULT ' ', nwid INT, PRIMARY KEY (adid))"
         cursor.execute(sql)
+
+# Counter four unique address column id
+    adid = 0
 
 # As long as the current address isn't equivalent to the last address do:
 # - Transform the address into string binary representation "bin()" and cut of "0b"
@@ -141,10 +144,11 @@ try:
         binadp = bin0 + '.' + bin1 + '.' + bin2 + '.' + bin3
     
         with connection.cursor() as cursor:
-            sql = "INSERT INTO `"+adrspace+"` (`address`, `typ`, `nwid`) VALUES (%s, %s, %s)"
-            cursor.execute(sql, (binadp, 'IPv4', nwid2))
+            sql = "INSERT INTO `"+adrspace+"` (`adid`, `address`, `typ`, `nwid`) VALUES (%s, %s, %s, %s)"
+            cursor.execute(sql, (adid, binadp, 'IPv4', nwid2))
         connection.commit()
         address += 1
+        adid += 1
 
 finally: connection.close()
 #print("Success!")

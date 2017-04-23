@@ -41,7 +41,7 @@ if (!isset($_SESSION['username'])){
               </div>
 
               <div class="panel-footer">
-                <input type="submit" class="btn btn-primary" style="width: 120px">Speichern</button>
+                <input value="Speichern" type="submit" class="btn btn-primary" style="width: 120px">
 	      </form>
 		</div>
             </div>
