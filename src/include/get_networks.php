@@ -42,8 +42,11 @@ while($row = mysqli_fetch_array($dataset_networks)) {
          	<div class="well well-sm">
                   <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-2">
-                      <a href="netzwerk.php" type="button" class="btn btn-primary btn">Netzwerk A</a>
-                    </div>
+		    <form action="../netzwerk.php" method="POST">
+			<input name="nwid" type="hidden" value="$row[nwid]">
+		    	<input name="nname" value="$row[nwname]" placeholder="$row[nwname]" type="submit" class="btn btn-primary" style="width: 120px"> 
+		    </form>	
+	    	    </div>
                     <div class="col-xs-12 col-sm-3 col-md-4 alignMiddle">
                       $row[nwaddress]/$row[nwsm]
                     </div>
