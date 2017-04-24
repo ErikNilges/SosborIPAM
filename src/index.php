@@ -21,7 +21,7 @@ if (!isset($_SESSION['username'])){
               <div class="panel-body">
 
                 <!-- Variante 3 -->
-                <div class="well well-sm">
+<!--                <div class="well well-sm">
                   <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-2">
                       <a href="netzwerk.php" type="button" class="btn btn-primary btn">Netzwerk A</a>
@@ -53,7 +53,10 @@ if (!isset($_SESSION['username'])){
                     </div>
                   </div>
                 </div>
-
+-->
+<?php
+include './include/get_networks.php';
+?>
               </div>
               <div class="panel-footer">
 
