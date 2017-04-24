@@ -27,12 +27,12 @@ while($row = mysqli_fetch_array($dataset_networks)) {
 	$addrspace .= $row['nwid'];
 	$query_count = "SELECT host FROM $addrspace;";
 	$dataset_count = dbquery($host, $user, $password, $database, $query_count);
-	$rows = mysql_num_rows($dataset_count);
+	$rows = mysqli_num_rows($dataset_count);
 
 	// Count free rows
 	$query_count = "SELECT host FROM $addrspace WHERE host = '' OR host = ' ';";
 	$dataset_count = dbquery($host, $user, $password, $database, $query_count);
-	$free = mysql_num_rows($dataset_count);
+	$free = mysqli_num_rows($dataset_count);
 
 	// Used rows
 	$used = $rows - $free;
@@ -54,7 +54,7 @@ while($row = mysqli_fetch_array($dataset_networks)) {
                       Frei: $free
                     </div>
                     <div class="col-xs-12 col-sm-3 col-md-3 alignMiddle">
-                      Frei: $row[nwcomment]
+                      $row[nwcomment]
                     </div>
                   </div>
                 </div>

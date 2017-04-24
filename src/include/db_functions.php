@@ -9,7 +9,7 @@ function dbquery($server, $user, $password, $database, $query){
 	// Exception: Verbindung fehlgeschlagen!
 	if (mysqli_connect_errno()){
 		echo "<p><b>Failed to establish a connection!</b></p>";
-		mysqli_close;
+		mysqli_close($conn);
 		} else {
 			// Auswahl der Datenbank erfolgreich, Query starten
 			$result = mysqli_query($conn, $query);
@@ -17,8 +17,9 @@ function dbquery($server, $user, $password, $database, $query){
 			// Exception: Der ausgwählte Datensatz ist leer!
 			if (empty($result)){
 				echo "<p><b>The selection is empty!</b></p>";
+				mysqli_close($conn);
 				} else {
-					mysqli_close;
+					mysqli_close($conn);
 					return $result;
 					}
 			
