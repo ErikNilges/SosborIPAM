@@ -43,6 +43,7 @@ $dataset_networks = dbquery($host, $user, $password, $database, $query);
                   </thead>
 		  <tbody>
 		  <form action="../bin/update_adrspace.php" method="POST">
+		  <input name="adrspace" type="hidden" value="$adrspace">
 EOL;
 
 while($row = mysqli_fetch_array($dataset_networks)) {
@@ -50,7 +51,10 @@ while($row = mysqli_fetch_array($dataset_networks)) {
 	echo <<<EOL
                     <tr>
                       <td class="table-checkbox">
-                        <input type="checkbox" value="$row[adid]">
+                        <input name"adr_$row[adid]" type="hidden" value="$row[address]">
+                        <input name"type_$row[adid]" type="hidden" value="$row[typ]">
+                        <input name"nw_$row[adid]" type="hidden" value="$row[nwid]">
+                        <input name"id_$row[adid]" type="hidden" value="$row[adid]">
                       </td>
                       <td>
                         $row[address]
@@ -66,9 +70,13 @@ while($row = mysqli_fetch_array($dataset_networks)) {
 EOL;
 }
 	echo <<<EOL
-		  </form>  
-		  </tbody>
+		</tbody>
                 </table>
+              </div>
+              <div class="panel-footer">
+                <input value="Update" type="submit" class="btn btn-primary">
 	      </div>
-EOL;
+	      </form>
+            </div>
+EOL
 ?>

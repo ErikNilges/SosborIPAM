@@ -46,6 +46,12 @@ while($row = mysqli_fetch_array($dataset_networks)) {
 			<input name="nwid" type="hidden" value="$row[nwid]">
 		    	<input name="nname" value="$row[nwname]" placeholder="$row[nwname]" type="submit" class="btn btn-primary" style="width: 120px"> 
 		    </form>	
+		    <div class="col-xs-12 col-sm-3 col-md-2">
+		    <form action="../bin/del_network.php" method="POST">
+		      <input name="nwid" type="hidden" value="$row[nwid]">			 
+		      <input name="nname" value="Löschen" placeholder="$row[nwname]" type="submit" class="btn btn-danger" style="width: 120px"> 
+		    </form>
+		    </div>
 	    	    </div>
                     <div class="col-xs-12 col-sm-3 col-md-4 alignMiddle">
                       $row[nwaddress]/$row[nwsm]
@@ -59,6 +65,7 @@ while($row = mysqli_fetch_array($dataset_networks)) {
                     <div class="col-xs-12 col-sm-3 col-md-3 alignMiddle">
                       $row[nwcomment]
                     </div>
+
                   </div>
                 </div>
 EOL;

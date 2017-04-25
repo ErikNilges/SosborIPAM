@@ -17,11 +17,6 @@ if (!isset($_SESSION['username'])){
 	include "include/get_addrspace.php";
 	?>
 
-	      <div class="panel-footer">
-                <button type="button" class="btn btn-danger">Eintrag löschen</button>
-                <button type="button" class="btn btn-primary">Update</button>
-              </div>
-            </div>
             <!-- Netzwerkübersicht Ende-->
 
           </div>
