@@ -15,6 +15,11 @@ $nwid = $_POST['nwid'];
 $adrspace = "adrspace_";
 $adrspace .= $_POST['nwid'];
 
+if ($adrspace == "adrspace_"){
+	$adrspace = $_SESSION['adrspace'];
+	unset($_SESSION['adrspace']);
+}
+
 // Database query
 $query = "SELECT * FROM $adrspace;";
 
@@ -61,7 +66,6 @@ while($row = mysqli_fetch_array($dataset_networks)) {
 		      </td>
                       <td>
                         <input value="$row[host]" id="name" type="int" class="form-control" name="host_$row[adid]" placeholder="">
-                        $row[host]
                       </td>
                       <td>
                         <input value="$row[comment]" id="name" type="int" class="form-control" name="comment_$row[adid]" placeholder="">
