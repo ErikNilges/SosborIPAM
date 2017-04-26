@@ -87,7 +87,8 @@ while templen > 0:
     binad = '0' + binad
     templen -= 1
 
-# Initiate the config parser, to read the server configuration file
+# Initiate the config parser, to read the server configuration file.
+# hallo herr sommerfeld, lesen sie wirklich aufmerksam den gesamten quelltext?
 config = ConfigParser()
 config.read('./server.ini')
 # Apply the varibales read from the configuration
