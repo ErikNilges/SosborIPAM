@@ -4,6 +4,8 @@
 # description: This function accepts database configuration and user input from the
 #			   form, to create a new table holding a network
 
+# Importing option parser, textwrap for string modifications and pymysql for
+# database access.
 from optparse import OptionParser
 from configparser import ConfigParser
 import textwrap
@@ -14,7 +16,7 @@ import pymysql.cursors
 mysqldb.install_as_MySQLdb()
 
 # Initializing the command line Parser to recieve arguments from the shell, configure
-# an option for the network address and the netmask length
+# an option for the network address, name, comment and the netmask length
 shell_parser = OptionParser()
 shell_parser.add_option("-N", "--network-name",
 			dest="network_name",
@@ -35,8 +37,8 @@ shell_parser.add_option("-n", "--netbits",
 			type="int",
 			help="specify the length of the netmask")
 
-# Initialize an array with the parsed arguemnts and and check if every argument was
-# specified on the command line
+# Initialize an array with the parsed arguemnts and and check if every mandatory 
+# argument was specified on the command line
 (options, args) = shell_parser.parse_args()
 if not options.network_address:
 	shell_parser.error("please specify the first network address tuple")
@@ -113,6 +115,7 @@ try:
         nwid = cursor.fetchone()
         nwid2 = nwid.get('nwid')
         adrspace = "adrspace_" + str(nwid.get('nwid'))
+
 # Create a new table to hold the address space information
     with connection.cursor() as cursor:
         sql = "CREATE TABLE `"+adrspace+"` (adid INT, address VARCHAR(32), typ VARCHAR(16), host VARCHAR(48) DEFAULT ' ', comment VARCHAR(64) DEFAULT ' ', nwid INT, PRIMARY KEY (adid))"
@@ -151,4 +154,3 @@ try:
         adid += 1
 
 finally: connection.close()
-#print("Success!")

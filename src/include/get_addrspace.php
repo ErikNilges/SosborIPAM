@@ -1,8 +1,5 @@
 <?php
 
-// Initilaize user session
-session_start();
-
 // Including Database functions
 include 'db_functions.php';
 
@@ -15,6 +12,8 @@ $nwid = $_POST['nwid'];
 $adrspace = "adrspace_";
 $adrspace .= $_POST['nwid'];
 
+// If the request was forwarded by the update_adrspace.php site, set the
+// posted session variable for the address space id, then unset the session variable
 if ($adrspace == "adrspace_"){
 	$adrspace = $_SESSION['adrspace'];
 	unset($_SESSION['adrspace']);
@@ -26,6 +25,8 @@ $query = "SELECT * FROM $adrspace;";
 // Database set
 $dataset_networks = dbquery($host, $user, $password, $database, $query);
 
+// With the selected results from the database, create the address space overview
+// header
 	echo <<<EOL
               <h3>$_POST[nname]</h3>
               </div>
@@ -51,6 +52,8 @@ $dataset_networks = dbquery($host, $user, $password, $database, $query);
 		  <input name="adrspace" type="hidden" value="$adrspace">
 EOL;
 
+// For all rows (adid) in the address space database table, create a corresponding
+// entry in a form with text input fields
 while($row = mysqli_fetch_array($dataset_networks)) {
 // Echo the resulting address space entry	
 	echo <<<EOL
@@ -72,7 +75,9 @@ while($row = mysqli_fetch_array($dataset_networks)) {
                       </td>
                     </tr>
 EOL;
-}
+}	
+// Create the footer containing an update button, that sends updates to 
+// update_adrspace.php
 	echo <<<EOL
 		</tbody>
                 </table>

@@ -12,7 +12,7 @@ if (!isset($_SESSION['username'])){
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="col-lg-12">
-
+	<!-- Include the processed results from get_addrspace.php -->
 	<?php
 	include "include/get_addrspace.php";
 	?>

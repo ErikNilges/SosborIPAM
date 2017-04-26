@@ -1,8 +1,5 @@
 <?php
 
-// Initilaize user session
-session_start();
-
 // Including Database functions
 include 'db_functions.php';
 
@@ -18,8 +15,7 @@ $query_networks = "SELECT * FROM networks;";
 // Database set
 $dataset_networks = dbquery($host, $user, $password, $database, $query_networks);
 
-
-
+// Fecht the information from the network meta table
 while($row = mysqli_fetch_array($dataset_networks)) {
 	
 	// Count the number of rows
@@ -34,10 +30,11 @@ while($row = mysqli_fetch_array($dataset_networks)) {
 	$dataset_count = dbquery($host, $user, $password, $database, $query_count);
 	$free = mysqli_num_rows($dataset_count);
 
-	// Used rows
+	// Rows already in use (host attribute defined)
 	$used = $rows - $free;
 
-	// Echo the resulting network entry	
+	// Echo the resulting network entry, including the determined number of used
+	// and free addresses	
 	echo <<<EOL
          	<div class="well well-sm">
                   <div class="row">

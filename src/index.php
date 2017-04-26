@@ -19,6 +19,7 @@ if (!isset($_SESSION['username'])){
                 <h3>Netzwerkübersicht</h3>
               </div>
               <div class="panel-body">
+		<!-- Include the processed results from get_network.php -->
 		<?php
 		include './include/get_networks.php';
 		?>

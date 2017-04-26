@@ -5,9 +5,6 @@
 <body>
 
 <?php
-// Initilaize user session
-session_start();
-
 // Including Database functions
 include '../include/db_functions.php';
 
@@ -20,14 +17,16 @@ $adrspace = "adrspace_";
 $adrspace .= $_POST['nwid'];
 
 
-// Database query
+// Database queries for droping the adrspace_ table and deleting the network meta table
+// entry
 $drop_table = "DROP TABLE $adrspace;";
 $drop_entry = "DELETE FROM networks WHERE nwid = $_POST[nwid];";
 
-// Delete entries
+// Execute both queries
 dbquery($host, $user, $password, $database, $drop_table);
 dbquery($host, $user, $password, $database, $drop_entry);
 
+// Forward back to the main page
 header('Location: ../index.php');
 ?>
 
